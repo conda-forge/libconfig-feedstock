@@ -9,6 +9,8 @@ package:
 source:
   url: https://github.com/hyperrealm/libconfig/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - fix_header_inside_namespace_error.patch
 
 build:
   number: 0

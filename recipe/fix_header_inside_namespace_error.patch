@@ -1,0 +1,26 @@
+diff --git a/lib/libconfigcpp.c++ b/lib/libconfigcpp.c++
+index e5fffa5..7b57f68 100644
+--- a/lib/libconfigcpp.c++
++++ b/lib/libconfigcpp.c++
+@@ -20,6 +20,10 @@
+    ----------------------------------------------------------------------------
+ */
+ 
++#include <cstring>
++#include <cstdlib>
++#include <sstream>
++
+ #include "libconfig.h++"
+ 
+ #ifdef _MSC_VER
+@@ -29,10 +33,6 @@
+ #include "wincompat.h"
+ #include "libconfig.h"
+ 
+-#include <cstring>
+-#include <cstdlib>
+-#include <sstream>
+-
+ namespace libconfig {
+ 
+ // ---------------------------------------------------------------------------
