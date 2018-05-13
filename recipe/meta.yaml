@@ -1,6 +1,6 @@
 {% set name = "libconfig" %}
-{% set version = "1.6" %}
-{% set sha256 = "18739792eb463d73525d7aea9b0a48b14106fae1cfec09aedc668d8c1079adf1" %}
+{% set version = "1.7.2" %}
+{% set sha256 = "f67ac44099916ae260a6c9e290a90809e7d782d96cdd462cac656ebc5b685726" %}
 
 package:
   name: {{ name }}
