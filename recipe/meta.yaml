@@ -17,8 +17,8 @@ requirements:
   build:
     - {{ compiler("cxx") }}
     - msinttypes   # [win]
-    - ninja        # [win]
-    - cmake        # [win]
+    - ninja
+    - cmake
 
 test:
   commands:
