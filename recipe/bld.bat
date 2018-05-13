@@ -7,4 +7,4 @@ cmake -G Ninja ^
       ..
 
 ninja install
-ctest
+ctest --output-on-failure
