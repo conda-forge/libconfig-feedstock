@@ -1,9 +1,11 @@
-if /I "%vc%"=="14" (
-    msbuild lib\libconfig.vcxproj /t:Rebuild /p:Configuration=Release /p:Platform=Win32
-    msbuild lib\libconfig++.vcxproj /t:Rebuild /p:Configuration=Release /p:Platform=Win32
-    msbuild tests\tests.vcxproj /t:Rebuild /p:Configuration=Release /p:Platform=Win32
-) ELSE (
-    msbuild lib\libconfig.vcproj /t:Rebuild /p:Configuration=Release /p:Platform=Win32
-    msbuild lib\libconfig++.vcproj /t:Rebuild /p:Configuration=Release /p:Platform=Win32
-    msbuild tests\tests.vcproj /t:Rebuild /p:Configuration=Release /p:Platform=Win32
-)
+cp %RECIPE_DIR%/CMakeLists.txt %SRC_DIR%
+
+cmake -G Ninja ^
+  -DCMAKE_BUILD_TYPE=Release ^
+  -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
+  -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
+  .
+
+cmake --build . --config Release
+cmake --build . --config Release --target install
+
