@@ -31,7 +31,7 @@ test:
 
 about:
   home: http://hyperrealm.com/libconfig/libconfig.html
-  license: LGPL-2.1
+  license: LGPL-2.1-only
   license_file: COPYING.LIB
   summary: 'C/C++ Configuration File Library'
 
