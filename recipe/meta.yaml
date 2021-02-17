@@ -1,14 +1,14 @@
 {% set name = "libconfig" %}
-{% set version = "1.5" %}
-{% set sha256 = "e31daa390d8e4461c8830512fe2e13ba1a3d6a02a2305a02429eec61e68703f6" %}
+{% set version = "1.7.2" %}
+{% set sha256 = "f67ac44099916ae260a6c9e290a90809e7d782d96cdd462cac656ebc5b685726" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: http://hyperrealm.com/libconfig/{{ name }}-{{ version }}.tar.gz
-  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/hyperrealm/{{ name }}/archive/v{{ version }}.tar.gz
+  fn: v{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
@@ -19,6 +19,10 @@ requirements:
   build:
     - automake
     - autoconf
+    - libtool
+    - texinfo
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
 
 test:
   commands:
@@ -27,7 +31,7 @@ test:
 
 about:
   home: http://hyperrealm.com/libconfig/libconfig.html
-  license: LGPL-2.1
+  license: LGPL-2.1-only
   license_file: COPYING.LIB
   summary: 'C/C++ Configuration File Library'
 
