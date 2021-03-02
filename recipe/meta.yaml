@@ -12,17 +12,19 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: True  # [win]
+  number: 1
 
 requirements:
   build:
-    - automake
-    - autoconf
-    - libtool
-    - texinfo
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - automake     # [not win]
+    - autoconf     # [not win]
+    - libtool      # [not win]
+    - texinfo      # [not win]
+    - ninja        # [win]
+    - cmake        # [win]
+    - msinttypes   # [win]
 
 test:
   commands:
