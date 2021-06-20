@@ -1,6 +1,6 @@
 {% set name = "libconfig" %}
-{% set version = "1.7.2" %}
-{% set sha256 = "f67ac44099916ae260a6c9e290a90809e7d782d96cdd462cac656ebc5b685726" %}
+{% set version = "1.7.3" %}
+{% set sha256 = "68757e37c567fd026330c8a8449aa5f9cac08a642f213f2687186b903bd7e94e" %}
 
 package:
   name: {{ name }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -35,7 +35,7 @@ about:
   home: http://hyperrealm.com/libconfig/libconfig.html
   license: LGPL-2.1-only
   license_file: COPYING.LIB
-  summary: 'C/C++ Configuration File Library'
+  summary: C/C++ Configuration File Library
 
 extra:
   recipe-maintainers:
