@@ -22,6 +22,7 @@ requirements:
     - autoconf     # [not win]
     - libtool      # [not win]
     - texinfo      # [not win]
+    - make         # [not win]
     - ninja        # [win]
     - cmake        # [win]
     - msinttypes   # [win]
