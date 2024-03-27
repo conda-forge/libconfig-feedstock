@@ -21,6 +21,7 @@ requirements:
     - automake     # [not win]
     - autoconf     # [not win]
     - libtool      # [not win]
+    - make         # [not win]
     - texinfo      # [not win]
     - ninja        # [win]
     - cmake        # [win]
