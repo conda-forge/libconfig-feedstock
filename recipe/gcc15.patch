@@ -1,0 +1,54 @@
+Fix declarations to allow build with GCC 15 (C23)
+
+Backport of upstream commit 690342b9cbc8b39787a1501bd890d63ca63a003c
+(https://github.com/hyperrealm/libconfig/commit/690342b9cb), with the same
+change applied to the pre-generated lib/grammar.c so that bison is not needed.
+grammar.y is patched before grammar.c so that grammar.c stays newer and make
+does not try to regenerate it.
+
+--- a/lib/grammar.y
++++ b/lib/grammar.y
+@@ -40,8 +40,7 @@
+ #include "wincompat.h"
+ 
+ /* These declarations are provided to suppress compiler warnings. */
+-extern int libconfig_yylex();
+-extern int libconfig_yyget_lineno();
++extern int libconfig_yyget_lineno(void *);
+ 
+ static const char *err_array_elem_type = "mismatched element type in array";
+ static const char *err_duplicate_setting = "duplicate setting name";
+@@ -80,6 +79,11 @@
+   char *sval;
+ }
+ 
++%{
++/* These declarations are provided to suppress compiler warnings. */
++extern int libconfig_yylex(YYSTYPE *, void *);
++%}
++
+ %token <ival> TOK_BOOLEAN TOK_INTEGER TOK_HEX
+ %token <llval> TOK_INTEGER64 TOK_HEX64
+ %token <fval> TOK_FLOAT
+--- a/lib/grammar.c
++++ b/lib/grammar.c
+@@ -80,8 +80,7 @@
+ #include "wincompat.h"
+ 
+ /* These declarations are provided to suppress compiler warnings. */
+-extern int libconfig_yylex();
+-extern int libconfig_yyget_lineno();
++extern int libconfig_yyget_lineno(void *);
+ 
+ static const char *err_array_elem_type = "mismatched element type in array";
+ static const char *err_duplicate_setting = "duplicate setting name";
+@@ -218,6 +217,9 @@
+ 
+ /* Copy the second part of user declarations.  */
+ 
++/* These declarations are provided to suppress compiler warnings. */
++extern int libconfig_yylex(YYSTYPE *, void *);
++
+ #line 222 "grammar.c" /* yacc.c:358  */
+ 
+ #ifdef short
