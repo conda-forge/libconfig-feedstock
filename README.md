@@ -213,4 +213,5 @@ Feedstock Maintainers
 =====================
 
 * [@lomereiter](https://github.com/lomereiter/)
+* [@velonica0](https://github.com/velonica0/)
 
