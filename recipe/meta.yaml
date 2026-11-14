@@ -10,15 +10,19 @@ source:
   url: https://github.com/hyperrealm/{{ name }}/archive/v{{ version }}.tar.gz
   fn: v{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # Backport of https://github.com/hyperrealm/libconfig/commit/690342b9cb
+    - gcc15.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - automake     # [not win]
     - autoconf     # [not win]
     - libtool      # [not win]
@@ -41,4 +45,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - lomereiter
+    - velonica0
